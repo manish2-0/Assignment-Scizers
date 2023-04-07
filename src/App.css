@@ -36,3 +36,104 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* animated butoon */
+.ani-button {
+  padding: 10px 25px;
+  font-size: 20px;
+  border: none;
+  background-color: #2368ad;
+  color: aliceblue;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.ani-button:hover {
+  background-color: #fcfcfc;
+  color: #2368ad;
+}
+
+.ani-button::before {
+  content: "";
+  position: absolute;
+  /* width: 0%;
+  height: 0%; */
+  z-index: -1;
+  top: -3px;
+  left: -3px;
+  background-color: #2368ad;
+  /* transition: all 0.2s ease; */
+  animation: bor1 0.5s ease;
+  @apply rounded-sm;
+}
+
+
+.ani-button::after {
+  content: "";
+  position: absolute;
+  /* width: 0%;
+  height: 0%; */
+  bottom: -3px;
+  right: -3px;
+  background-color: #2368ad;
+  z-index: -1;
+  /* transition: all 0.2s ease; */
+  animation: bor1 0.5s ease;
+  @apply rounded-sm;
+}
+
+
+.ani-button:hover:before,
+.ani-button:hover:after {
+  animation: bor 0.5s ease;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+}
+
+@keyframes bor {
+  from {
+    width: 0%;
+    height: 0%;
+  }
+
+  to {
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+  }
+}
+
+@keyframes bor1 {
+  to {
+    width: 0%;
+    height: 0%;
+  }
+
+  from {
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+  }
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.bg-fix {
+  @apply bg-[#1e5b98];
+}
+
+
+.text-fix {
+  @apply text-[#1e5b98];
+}
